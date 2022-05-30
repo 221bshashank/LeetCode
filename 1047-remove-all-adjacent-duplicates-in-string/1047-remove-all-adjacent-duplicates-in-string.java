@@ -1,18 +1,24 @@
 class Solution {
-    public String removeDuplicates(String S) {
-        char[] ch = new char[S.length()];
-        int i = 0;
-        
-        for(int j = 0; j < S.length(); j++){
-            if(i > 0 && ch[i - 1] == S.charAt(j)){
-                i--;
+    public String removeDuplicates(String s) {
+	{
+        char[] ch = s.toCharArray();
+        int fast = 0;
+        int slow = 0;
+        while(fast < s.length())
+		{
+            ch[slow] = ch[fast];
+            if(slow > 0 && ch[slow] == ch[slow - 1])
+			{
+                slow--;
             }
-            else{
-                ch[i] = S.charAt(j);
-                i++;
+			else
+			{
+                slow++;
             }
+            fast++;
         }
-        return new String(ch, 0, i);
-        
+        return new String(ch,0,slow);
     }
+    
+}
 }
