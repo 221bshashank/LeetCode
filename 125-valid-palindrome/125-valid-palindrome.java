@@ -4,26 +4,20 @@ class Solution {
         StringBuilder sb=new StringBuilder();
         String ans=fun(s);
         ans=ans.toLowerCase();
-        int i=0;
-        int j=ans.length()-1;
-        while(i<j)
+        for (int i=ans.length()-1;i>=0;i--)
         {
-            if ((ans.charAt(i))==(ans.charAt(j)))
-                
-            {
-               // System.out.println(i+" "+j);
-                i++;
-                j--;
-                continue;
-            }
-            else
-            {
-                return false;
-            }
+            sb.append(ans.charAt(i));
         }
-        return true;
         
-    } 
+        if (ans.equals(sb.toString()))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public String fun(String s)
     {
         StringBuilder sb=new StringBuilder();
